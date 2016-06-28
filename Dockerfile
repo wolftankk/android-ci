@@ -2,11 +2,6 @@ FROM ubuntu:16.04
 MAINTAINER wolftankk <wolftankk@plu.cn>
 
 ENV VERSION_SDK_TOOLS "25.1.7"
-ENV VERSION_BUILD_TOOLS_2302 "23.0.2"
-ENV VERSION_BUILD_TOOLS_2303 "23.0.3"
-ENV VERSION_TARGET_SDK "23"
-
-ENV SDK_PACKAGES "build-tools-${VERSION_BUILD_TOOLS_2302},build-tools-${VERSION_BUILD_TOOLS_2303},android-${VERSION_TARGET_SDK},addon-google_apis-google-${VERSION_TARGET_SDK},platform-tools,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
 
 ENV ANDROID_HOME "/sdk"
 ENV PATH "$PATH:${ANDROID_HOME}/tools"
@@ -47,4 +42,4 @@ RUN unzip /tools.zip -d /sdk && \
 
 #ENV http_proxy=http://172.16.9.80:1081
 
-RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t ${SDK_PACKAGES}
+RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u --all
