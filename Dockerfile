@@ -43,8 +43,8 @@ RUN unzip /tools.zip -d /sdk && \
 # ndk
 ADD http://dl.google.com/android/repository/android-ndk-r12-linux-x86_64.zip /ndk.zip
 RUN unzip /ndk.zip -d /n && \
-    mv /n/android-ndk-r12 /ndk & \
-    rm -v /ndk.zip
+    mv /n/android-ndk-r12 /ndk 
+#& \ rm -v /ndk.zip
 ENV PATH "$PATH:/ndk"
 
 RUN (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/android update sdk -u -a -t platform-tools,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository,addon-google_apis-google-22,addon-google_apis-google-23,android-22,android-23,build-tools-23.0.1,build-tools-23.0.2,build-tools-23.0.3,build-tools-22.0.1
