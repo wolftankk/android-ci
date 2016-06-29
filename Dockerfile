@@ -42,7 +42,7 @@ RUN unzip /tools.zip -d /sdk && \
 
 # ndk
 ADD http://dl.google.com/android/repository/android-ndk-r12-linux-x86_64.zip /ndk.zip
-RUN unzip /ndk.zip -d /n && \
+RUN unzip -qq /ndk.zip -d /n && \
     mv /n/android-ndk-r12 /ndk 
 #& \ rm -v /ndk.zip
 ENV PATH "$PATH:/ndk"
